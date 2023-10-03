@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>ダウンロードリスト</h1>
+<h2>登録画面</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">送信</button>
+</form>
+<hr/>
+<h2>現状テーブル</h2>
+<table class="table">
+    <thead>
+        <tr><th>user</th><th>url</th><th>delete</th></tr>
+    </thead>
+    <tbody>
+        {% if download_list %}
+        {% for item in download_list %}
+            <tr>
+                <td>{{ item.user }}</td>
+                <td>{{ item.url }}</td>
+                {% if item.user == request.user %}
+                <td><a href="{% url 'delete' item.id %}" class="btn btn-danger">del</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
