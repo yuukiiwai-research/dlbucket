@@ -2,3 +2,4 @@ db.sqlilte3
 __pycache__
 .ev
 downloads
+.env
