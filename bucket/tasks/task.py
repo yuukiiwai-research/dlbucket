@@ -21,5 +21,5 @@ def download():
 def start():
     scheduler = BackgroundScheduler()
     print("schedule start")
-    scheduler.add_job(download,'cron',hour=9,minute=33)
+    scheduler.add_job(download,'cron',hour=18,minute=30)
     scheduler.start()
