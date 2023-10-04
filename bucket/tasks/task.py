@@ -16,6 +16,7 @@ def download():
         with open(putPath+filename,mode="wb+") as f:
             f.write(data)
             link.finish = True
+            link.save()
     print("end")
 
 def start():
