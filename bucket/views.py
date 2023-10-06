@@ -13,7 +13,7 @@ def index(request):
             dl_data.save()
             return redirect(index)
     
-    download_list = Download.objects.all()
+    download_list = Download.objects.filter(finish=False)
     form = DownloadForm()
     context = {"download_list":download_list,"form":form}
     return render(request,"index.html",context)
